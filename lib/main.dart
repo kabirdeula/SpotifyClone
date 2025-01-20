@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/themes/themes.dart';
+import 'routes/routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,9 +13,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: AppThemes.lightTheme,
-      home: Placeholder(),
+      routerConfig: AppRouter.router,
     );
   }
 }
