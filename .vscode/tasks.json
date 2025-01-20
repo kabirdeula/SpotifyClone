@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Generate: Splash Screen",
+      "type": "dart",
+      "command": "dart",
+      "args": ["run", "flutter_native_splash:create"],
+      "detail": "Generates the splash screen using flutter_native_splash configuration."
+    }
+  ]
+}
