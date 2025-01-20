@@ -24,6 +24,7 @@ class AppThemes {
       scaffoldBackgroundColor: scaffoldBackgroundColor,
       brightness: brightness,
       elevatedButtonTheme: _elevatedButtonTheme,
+      fontFamily: 'Montserrat',
       useMaterial3: true,
     );
   }
