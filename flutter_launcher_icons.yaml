@@ -1,0 +1,17 @@
+# flutter pub run flutter_launcher_icons
+flutter_launcher_icons:
+  image_path: "assets/images/splash.png"
+
+  android: "ic_launcher"
+
+  min_sdk_android: 21
+  adaptive_icon_background: "@android:color/transparent"
+  adaptive_icon_foreground: "assets/images/splash.png"
+
+  ios: false
+
+  web:
+    generate: true
+    image_path: "assets/images/splash.png"
+    background_color: "#FFFFFF"
+    theme_color: "#FFFFFF"
