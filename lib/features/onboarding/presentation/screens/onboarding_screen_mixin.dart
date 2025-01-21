@@ -16,7 +16,7 @@ mixin OnboardingScreenMixin {
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
       child: Column(
@@ -33,7 +33,7 @@ mixin OnboardingScreenMixin {
           AppText(text: AppStrings.onboardingSubtitle, color: AppColors.label),
           const SizedBox(height: 24.0),
           CustomElevatedButton(
-            onPressed: () {},
+            onPressed: () => context.go(AppRoutes.themePreference.path),
             label: AppStrings.getStartedButton,
           ),
         ],
