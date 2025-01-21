@@ -87,4 +87,7 @@ class AppColors {
   // * Custom Colors
   /// The color used for dark navigation menu background (Dark Grey). Color code: `#343434`
   static const Color navBarDark = Color(0xFF343434);
+
+  /// A semi-transparent charcoal color used for overlays or backgrounds.
+  static const Color semiTransparent = Color(0x8030393c);
 }
