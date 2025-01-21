@@ -25,22 +25,16 @@ mixin OnboardingScreenMixin {
         children: [
           Image.asset(AssetPaths.branding, scale: 2.2),
           Spacer(),
-          Text(
-            "Enjoy Listening to Music",
-            style: AppTypography.headline3(color: Colors.white)
-                .copyWith(fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
+          AppText(
+            text: AppStrings.onboardingTitle,
+            appTextStyle: AppTextStyle.subtitle,
           ),
           const SizedBox(height: 12.0),
-          Text(
-            AppStrings.fillerText,
-            style: AppTypography.bodyText2(color: AppColors.line),
-            textAlign: TextAlign.center,
-          ),
+          AppText(text: AppStrings.onboardingSubtitle, color: AppColors.label),
           const SizedBox(height: 24.0),
           CustomElevatedButton(
             onPressed: () {},
-            label: 'Get Started',
+            label: AppStrings.getStartedButton,
           ),
         ],
       ),
