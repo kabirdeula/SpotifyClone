@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/core/themes/themes.dart';
+import 'package:spotify_clone/core/widgets/widgets.dart';
 
 /// A custom ElevatedButton widget that allows easy reuse with flexible configurations.
 ///
@@ -38,9 +38,13 @@ class CustomElevatedButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         focusNode: focusNode,
-        child: Text(
-          label,
-          style: AppTypography.button(color: Colors.white),
+        // child: Text(
+        //   label,
+        //   style: AppTypography.button(color: Colors.white),
+        // ),
+        child: AppText(
+          text: label,
+          appTextStyle: AppTextStyle.button,
         ),
       ),
     );
