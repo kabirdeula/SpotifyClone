@@ -13,7 +13,7 @@ class AppColors {
   /// The color used for body text. Color code: `#4E4B66`
   static const Color body = Color(0xFF4E4B66);
 
-  /// The color used for labels. Color code: `#BEBEBE`
+  /// The color used for labels (Grey). Color code: `#BEBEBE`
   static const Color label = Color(0xFFBEBEBE);
 
   /// The placeholder text color. Color code: `#A0A3BD`
@@ -85,6 +85,6 @@ class AppColors {
   static const Color warningDarkMode = Color(0xFFFFD789);
 
   // * Custom Colors
-  /// The color used for dark navigation menu background. Color code: `#343434`
+  /// The color used for dark navigation menu background (Dark Grey). Color code: `#343434`
   static const Color navBarDark = Color(0xFF343434);
 }
