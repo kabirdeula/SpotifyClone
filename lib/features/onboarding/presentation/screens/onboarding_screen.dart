@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'package:spotify_clone/core/constants/constants.dart';
 import 'package:spotify_clone/core/widgets/widgets.dart';
 import 'package:spotify_clone/routes/routes.dart';
 
-part 'onboarding_screen_mixin.dart';
-
-class OnboardingScreen extends StatelessWidget with OnboardingScreenMixin {
+class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-
-    return Scaffold(
-      body: Stack(
-        children: [
-          _buildBackgroundImage(),
-          _buildOverlay(),
-          _buildContent(context),
-        ],
-      ),
+    return StackScreenLayout(
+      backgroundImage: AssetPaths.onboardingBackground,
+      children: [
+        brandingImage(),
+        Spacer(),
+        titleWidget(title: AppStrings.onboardingTitle),
+        smallSpacer,
+        AppText(text: AppStrings.onboardingSubtitle, color: AppColors.label),
+        largeSpacer,
+        CustomElevatedButton(
+          onPressed: () => context.go(AppRoutes.themePreference.path),
+          label: AppStrings.getStartedButton,
+        ),
+      ],
     );
   }
 }
