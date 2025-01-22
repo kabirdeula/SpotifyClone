@@ -23,6 +23,16 @@ class AppRouter {
         name: AppRoutes.welcome.name,
         builder: (context, state) => const WelcomeScreen(),
       ),
+      GoRoute(
+        path: AppRoutes.login.path,
+        name: AppRoutes.login.name,
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.register.path,
+        name: AppRoutes.register.name,
+        builder: (context, state) => const SignUpScreen(),
+      ),
     ],
   );
 }
