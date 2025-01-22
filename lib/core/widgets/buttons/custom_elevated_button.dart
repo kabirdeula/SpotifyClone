@@ -23,29 +23,25 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final FocusNode? focusNode;
   final String label;
+  final ButtonStyle? style;
 
   const CustomElevatedButton({
     super.key,
     required this.onPressed,
     this.focusNode,
     required this.label,
+    this.style,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        focusNode: focusNode,
-        // child: Text(
-        //   label,
-        //   style: AppTypography.button(color: Colors.white),
-        // ),
-        child: AppText(
-          text: label,
-          appTextStyle: AppTextStyle.button,
-        ),
+    return ElevatedButton(
+      onPressed: onPressed,
+      focusNode: focusNode,
+      style: style,
+      child: AppText(
+        text: label,
+        appTextStyle: AppTextStyle.button,
       ),
     );
   }
