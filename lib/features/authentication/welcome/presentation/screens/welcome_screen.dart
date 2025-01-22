@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/core/constants/constants.dart';
 import 'package:spotify_clone/core/widgets/widgets.dart';
+import 'package:spotify_clone/routes/routes.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -42,13 +43,13 @@ class WelcomeScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustomElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => context.go(AppRoutes.register.path),
                         label: 'Register',
                       ),
                     ),
                     Expanded(
                       child: CustomElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => context.go(AppRoutes.login.path),
                         label: 'Sign in',
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.label,
