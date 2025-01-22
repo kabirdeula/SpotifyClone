@@ -3,6 +3,7 @@ import 'package:spotify_clone/core/constants/constants.dart';
 import 'package:spotify_clone/core/dependency_injection/dependency_injection.dart';
 import 'package:spotify_clone/core/widgets/widgets.dart';
 import 'package:spotify_clone/features/theme_preference/theme_preference.dart';
+import 'package:spotify_clone/routes/routes.dart';
 
 class ThemePreferenceScreen extends StatelessWidget {
   const ThemePreferenceScreen({super.key});
@@ -26,7 +27,13 @@ class ThemePreferenceScreen extends StatelessWidget {
           ],
         ),
         Spacer(),
-        CustomElevatedButton(onPressed: () {}, label: "Continue"),
+        SizedBox(
+          width: double.infinity,
+          child: CustomElevatedButton(
+            onPressed: () => context.go(AppRoutes.welcome.path),
+            label: "Continue",
+          ),
+        ),
       ],
     );
   }

@@ -18,9 +18,12 @@ class OnboardingScreen extends StatelessWidget {
         smallSpacer,
         AppText(text: AppStrings.onboardingSubtitle, color: AppColors.label),
         largeSpacer,
-        CustomElevatedButton(
-          onPressed: () => context.go(AppRoutes.themePreference.path),
-          label: AppStrings.getStartedButton,
+        SizedBox(
+          width: double.infinity,
+          child: CustomElevatedButton(
+            onPressed: () => context.go(AppRoutes.themePreference.path),
+            label: AppStrings.getStartedButton,
+          ),
         ),
       ],
     );
