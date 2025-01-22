@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/core/constants/constants.dart';
+import 'package:spotify_clone/core/dependency_injection/dependency_injection.dart';
 import 'package:spotify_clone/core/widgets/widgets.dart';
+import 'package:spotify_clone/features/theme_preference/theme_preference.dart';
 
 class ThemePreferenceScreen extends StatelessWidget {
   const ThemePreferenceScreen({super.key});
@@ -17,8 +19,10 @@ class ThemePreferenceScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            DecoratedIconButton.darkMode(onPressed: () {}),
-            DecoratedIconButton.lightMode(onPressed: () {}),
+            DecoratedIconButton.darkMode(
+                onPressed: () => sl<ThemeCubit>().updateTheme(ThemeMode.dark)),
+            DecoratedIconButton.lightMode(
+                onPressed: () => sl<ThemeCubit>().updateTheme(ThemeMode.light)),
           ],
         ),
         Spacer(),
