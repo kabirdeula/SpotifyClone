@@ -1,3 +1,4 @@
+import 'package:spotify_clone/features/authentication/authentication.dart';
 import 'package:spotify_clone/features/onboarding/onboarding.dart';
 import 'package:spotify_clone/features/theme_preference/theme_preference.dart';
 
@@ -16,6 +17,11 @@ class AppRouter {
         path: AppRoutes.themePreference.path,
         name: AppRoutes.themePreference.name,
         builder: (context, state) => const ThemePreferenceScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.welcome.path,
+        name: AppRoutes.welcome.name,
+        builder: (context, state) => const WelcomeScreen(),
       ),
     ],
   );
