@@ -8,27 +8,37 @@ class DecoratedIconButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onPressed;
   final String text;
+  final bool isSelected;
 
   const DecoratedIconButton({
     super.key,
     required this.icon,
     required this.onPressed,
     required this.text,
+    this.isSelected = false,
   });
 
-  factory DecoratedIconButton.lightMode({required VoidCallback onPressed}) {
+  factory DecoratedIconButton.lightMode({
+    required VoidCallback onPressed,
+    bool isSelected = false,
+  }) {
     return DecoratedIconButton(
       icon: Icons.light_mode_outlined,
       onPressed: onPressed,
       text: 'Light Mode',
+      isSelected: isSelected,
     );
   }
 
-  factory DecoratedIconButton.darkMode({required VoidCallback onPressed}) {
+  factory DecoratedIconButton.darkMode({
+    required VoidCallback onPressed,
+    bool isSelected = false,
+  }) {
     return DecoratedIconButton(
       icon: Icons.dark_mode_outlined,
       onPressed: onPressed,
       text: 'Dark Mode',
+      isSelected: isSelected,
     );
   }
 
@@ -44,6 +54,9 @@ class DecoratedIconButton extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.semiTransparent,
                 shape: BoxShape.circle,
+                border: isSelected
+                    ? Border.all(color: Colors.white, width: 2)
+                    : Border.all(color: Colors.transparent, width: 2),
               ),
               child: IconButton(
                 onPressed: onPressed,
