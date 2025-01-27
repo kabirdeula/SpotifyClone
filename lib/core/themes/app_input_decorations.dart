@@ -40,7 +40,7 @@ class AppInputDecorations {
       borderRadius: const BorderRadius.all(Radius.circular(16)),
       contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
       errorColor: Colors.red,
-      fillColor: AppColors.inputBackground,
+      fillColor: Colors.transparent,
       focusColor: AppColors.primary,
       hintColor: AppColors.placeholder,
     );
@@ -65,7 +65,7 @@ class AppInputDecorations {
   OutlineInputBorder _defaultBorder() {
     return OutlineInputBorder(
       borderRadius: borderRadius,
-      borderSide: BorderSide.none,
+      borderSide: BorderSide(color: Colors.white, width: 0.4),
     );
   }
 
