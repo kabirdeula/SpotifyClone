@@ -10,6 +10,12 @@ class SocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: 50, height: 50, child: Image.asset(image));
+    String displayImage = image;
+
+    if (image == AssetPaths.apple) {
+      final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+      displayImage = isDarkMode ? AssetPaths.appleWhite : AssetPaths.apple;
+    }
+    return SizedBox(width: 50, height: 50, child: Image.asset(displayImage));
   }
 }
