@@ -15,7 +15,7 @@ import 'package:spotify_clone/core/constants/constants.dart';
 ///   validator: (value) => value!.isEmpty ? 'Field cannot be empty' : null,
 ///   )
 /// ```
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField extends StatefulWidget {
   /// Controls the text being edited.
   final TextEditingController controller;
 
@@ -100,28 +100,58 @@ class CustomTextFormField extends StatelessWidget {
   });
 
   @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  late bool isTextObscured;
+
+  @override
+  void initState() {
+    super.initState();
+    isTextObscured = widget.isObscureText;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
-      focusNode: focusNode,
-      decoration: InputDecoration(hintText: hintText, suffixIcon: suffixIcon),
-      keyboardType: keyboardType,
-      textInputAction: textInputAction,
-      style: textStyle,
-      autofocus: isAutofocus,
-      obscureText: isObscureText,
-      autocorrect: isAutocorrect,
-      onChanged: onChanged,
-      onEditingComplete: onEditingComplete,
-      validator: validator,
-      cursorWidth: cursorWidth,
-      cursorHeight: cursorHeight,
-      cursorColor: cursorColor,
-      cursorErrorColor: errorColor,
-      enableInteractiveSelection: isEnabledSelection,
+      controller: widget.controller,
+      focusNode: widget.focusNode,
+      decoration: InputDecoration(
+          hintText: widget.hintText, suffixIcon: _buildSuffixIcon()),
+      keyboardType: widget.keyboardType,
+      textInputAction: widget.textInputAction,
+      style: widget.textStyle,
+      autofocus: widget.isAutofocus,
+      obscureText: isTextObscured,
+      autocorrect: widget.isAutocorrect,
+      onChanged: widget.onChanged,
+      onEditingComplete: widget.onEditingComplete,
+      validator: widget.validator,
+      cursorWidth: widget.cursorWidth,
+      cursorHeight: widget.cursorHeight,
+      cursorColor: widget.cursorColor,
+      cursorErrorColor: widget.errorColor,
+      enableInteractiveSelection: widget.isEnabledSelection,
       selectionControls: MaterialTextSelectionControls(),
-      autofillHints: autoFillHints,
-      autovalidateMode: autovalidateMode,
+      autofillHints: widget.autoFillHints,
+      autovalidateMode: widget.autovalidateMode,
     );
+  }
+
+  Widget? _buildSuffixIcon() {
+    if (widget.isObscureText) {
+      return IconButton(
+        onPressed: () {
+          setState(() {
+            isTextObscured = !isTextObscured;
+          });
+        },
+        icon: Icon(
+          isTextObscured ? Icons.visibility_off : Icons.visibility,
+        ),
+      );
+    }
+    return null;
   }
 }
