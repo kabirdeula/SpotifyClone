@@ -65,7 +65,7 @@ class DecoratedIconButton extends StatelessWidget {
             ),
           ),
         ),
-        AppText(text: text),
+        AppText(text: text, color: AppColors.label),
       ],
     );
   }

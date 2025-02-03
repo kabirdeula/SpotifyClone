@@ -26,6 +26,7 @@ Widget titleWidget({required String title}) {
   return AppText(
     text: title,
     appTextStyle: AppTextStyle.subtitle,
+    color: AppColors.label,
   );
 }
 
