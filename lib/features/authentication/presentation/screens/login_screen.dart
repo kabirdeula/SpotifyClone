@@ -19,22 +19,14 @@ class LoginScreen extends StatelessWidget {
             brandingImage(scale: 2.6),
             AppText(
               text: 'Sign In',
-              color: AppColors.titleActive,
               appTextStyle: AppTextStyle.subtitle,
             ),
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'If You Need Any Support ',
-                    style: TextStyle(color: AppColors.titleActive),
-                  ),
-                  TextSpan(
-                    text: 'Click Here',
-                    style: TextStyle(color: AppColors.primary),
-                  )
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AppText(text: 'If You Need Any Support '),
+                AppText(text: 'Click Here', color: AppColors.primary),
+              ],
             ),
             CustomTextFormField(
               controller: email,
@@ -43,10 +35,7 @@ class LoginScreen extends StatelessWidget {
             CustomTextFormField(controller: password, hintText: 'Password'),
             Align(
               alignment: Alignment.centerLeft,
-              child: AppText(
-                text: 'Recovery Password',
-                color: AppColors.titleActive,
-              ),
+              child: AppText(text: 'Recovery Password'),
             ),
             SizedBox(
               width: double.infinity,
