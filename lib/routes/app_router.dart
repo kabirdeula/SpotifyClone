@@ -31,7 +31,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.register.path,
         name: AppRoutes.register.name,
-        builder: (context, state) => const SignUpScreen(),
+        builder: (context, state) => SignUpScreen(),
       ),
     ],
   );
