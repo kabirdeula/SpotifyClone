@@ -11,6 +11,7 @@ import 'package:spotify_clone/firebase_options.dart';
 import 'core/dependency_injection/dependency_injection.dart';
 import 'core/themes/themes.dart';
 import 'features/authentication/authentication.dart';
+import 'features/dashboard/dashboard.dart';
 import 'features/theme_preference/theme_preference.dart';
 import 'routes/routes.dart';
 
@@ -36,6 +37,7 @@ Future<void> main() async {
       providers: [
         BlocProvider(create: (context) => sl<ThemeCubit>()),
         BlocProvider(create: (context) => sl<AuthCubit>()..checkUserStatus()),
+        BlocProvider(create: (context) => sl<DashboardCubit>())
       ],
       child: const MyApp(),
     ),
