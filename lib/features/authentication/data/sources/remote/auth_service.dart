@@ -3,19 +3,28 @@ import 'package:spotify_clone/core/util/util.dart';
 import 'package:spotify_clone/features/authentication/authentication.dart';
 
 class AuthService {
-  Future<void> register({required UserModel user}) async {
+  Future<AuthResponse> register({required UserModel user}) async {
+    var message = '';
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: user.email,
         password: user.password,
       );
-      
-      log.i("(Auth Service) User registered successfully.");
+      message = "User registered successfully.";
+      log.i("(Auth Service) $message");
+      return AuthResponse(success: message);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        log.e("(Auth Service) The password provided is too weak.");
+        message = "The password provided is too weak.";
+        log.e("(Auth Service) $message");
+        return AuthResponse(error: message);
       } else if (e.code == 'email-already-in-use') {
-        log.e("(Auth Service) The account already exists for that email.");
+        message = "The account already exists for that email.";
+        log.e("(Auth Service) $message");
+        return AuthResponse(error: message);
+      } else {
+        log.e("(Auth Service) ${e.message}");
+        return AuthResponse(error: e.message);
       }
     }
   }

@@ -9,7 +9,8 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<void> register({required UserModel user}) async{
-    await sl<AuthService>().register(user: user);
+  Future<AuthResponse> register({required UserModel user}) async{
+    var result = await sl<AuthService>().register(user: user);
+    return result;
   }
 }
