@@ -4,4 +4,5 @@ import 'dependency_injection.dart';
 
 setupUsecaseInjection(){
   sl.registerSingleton<RegisterUsecase>(RegisterUsecase());
+  sl.registerSingleton<LoginUsecase>(LoginUsecase());
 }
