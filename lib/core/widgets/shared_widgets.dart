@@ -15,10 +15,10 @@ Widget semiTransparentOverlay({double opacity = 0.45}) {
   return Container(color: Color.fromRGBO(0, 0, 0, opacity));
 }
 
-Widget brandingImage() {
+Widget brandingImage({double scale = 2.2}) {
   return Align(
     alignment: Alignment.topCenter,
-    child: Image.asset(AssetPaths.branding, scale: 2.2),
+    child: Image.asset(AssetPaths.branding, scale: scale),
   );
 }
 
@@ -26,6 +26,7 @@ Widget titleWidget({required String title}) {
   return AppText(
     text: title,
     appTextStyle: AppTextStyle.subtitle,
+    color: AppColors.label,
   );
 }
 

@@ -1,9 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:spotify_clone/firebase_options.dart';
 
 import 'core/dependency_injection/dependency_injection.dart';
 import 'core/themes/themes.dart';
@@ -18,6 +20,7 @@ Future<void> main() async {
         : HydratedStorageDirectory((await getTemporaryDirectory()).path),
   );
 
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setupDependencyInjection();
 
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);

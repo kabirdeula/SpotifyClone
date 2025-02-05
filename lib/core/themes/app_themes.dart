@@ -20,10 +20,11 @@ class AppThemes {
     required Color scaffoldBackgroundColor,
   }) {
     return ThemeData(
+      brightness: brightness,
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: scaffoldBackgroundColor,
-      brightness: brightness,
       elevatedButtonTheme: _elevatedButtonTheme,
+      inputDecorationTheme: _inputDecorationTheme,
       fontFamily: 'Montserrat',
       useMaterial3: true,
     );
@@ -31,4 +32,6 @@ class AppThemes {
 
   // Button styles shared between themes
   static final _elevatedButtonTheme = ButtonStyles.elevatedButton();
+  static final _inputDecorationTheme =
+      AppInputDecorations.defaultConfig().buildInputDecorationTheme();
 }

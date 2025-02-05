@@ -42,20 +42,24 @@ class AppText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final effectiveColor = color == AppColors.offWhite
+        ? (isDarkMode ? AppColors.offWhite : AppColors.titleActive)
+        : color;
     final predefinedStyle = () {
       switch (appTextStyle) {
         case AppTextStyle.headline:
-          return AppTypography.headline1(color: color);
+          return AppTypography.headline1(color: effectiveColor);
         case AppTextStyle.subtitle:
-          return AppTypography.headline2(color: color);
+          return AppTypography.headline2(color: effectiveColor);
         case AppTextStyle.body:
-          return AppTypography.bodyText1(color: color);
+          return AppTypography.bodyText1(color: effectiveColor);
         case AppTextStyle.caption:
-          return AppTypography.caption(color: color);
+          return AppTypography.caption(color: effectiveColor);
         case AppTextStyle.button:
-          return AppTypography.button(color: color);
+          return AppTypography.button(color: effectiveColor);
         default:
-          return AppTypography.bodyText2(color: color);
+          return AppTypography.bodyText2(color: effectiveColor);
       }
     }();
 

@@ -28,13 +28,11 @@ class WelcomeScreen extends StatelessWidget {
                 brandingImage(),
                 AppText(
                   text: 'Enjoy Listening To Music',
-                  color: Colors.black,
                   appTextStyle: AppTextStyle.subtitle,
                 ),
                 AppText(
                   text:
                       'Spotify is a proprietary Swedish audio streaming and media services provider',
-                  color: Colors.grey,
                   appTextStyle: AppTextStyle.body,
                 ),
                 Row(
