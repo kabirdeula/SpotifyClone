@@ -3,6 +3,7 @@ export './data/models/user/user.dart';
 export './data/repositories/auth_repository.dart';
 export './data/sources/remote/auth_service.dart';
 export './domain/repositories/auth_repository.dart';
+export './domain/usecases/login_usecase.dart';
 export './domain/usecases/register_usecase.dart';
 export './presentation/screens/auth_screen.dart';
 export './presentation/screens/login_screen.dart';

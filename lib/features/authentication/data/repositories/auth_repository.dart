@@ -3,13 +3,13 @@ import 'package:spotify_clone/features/authentication/authentication.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   @override
-  Future<void> login() {
-    // TODO: implement login
-    throw UnimplementedError();
+  Future<AuthResponse> login({required UserModel user}) async {
+    var result = await sl<AuthService>().login(user: user);
+    return result;
   }
 
   @override
-  Future<AuthResponse> register({required UserModel user}) async{
+  Future<AuthResponse> register({required UserModel user}) async {
     var result = await sl<AuthService>().register(user: user);
     return result;
   }
