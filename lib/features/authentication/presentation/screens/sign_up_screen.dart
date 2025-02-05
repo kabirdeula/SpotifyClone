@@ -13,38 +13,53 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AuthScreen(
-      title: 'Register',
-      button: 'Register',
-      fields: [
-        CustomTextFormField(controller: name, hintText: 'Full Name'),
-        CustomTextFormField(controller: email, hintText: 'Enter Email'),
-        CustomTextFormField(
-          controller: password,
-          hintText: 'Password',
-          isObscureText: true,
-        ),
-      ],
-      onSubmit: () async{
-        final user = UserModel(
-          email: email.text,
-          password: password.text,
-          name: name.text,
-        );
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: AuthScreen(
+        title: 'Register',
+        button: 'Register',
+        fields: [
+          CustomTextFormField(
+            controller: name,
+            hintText: 'Full Name',
+            autoFillHints: [AutofillHints.name],
+            textInputAction: TextInputAction.next,
+          ),
+          CustomTextFormField(
+            controller: email,
+            hintText: 'Enter Email',
+            autoFillHints: [AutofillHints.email],
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
+          ),
+          CustomTextFormField(
+            controller: password,
+            hintText: 'Password',
+            isObscureText: true,
+            autoFillHints: [AutofillHints.password],
+          ),
+        ],
+        onSubmit: () async {
+          final user = UserModel(
+            email: email.text,
+            password: password.text,
+            name: name.text,
+          );
 
-        var result = await sl<RegisterUsecase>().call(user: user);
+          var result = await sl<RegisterUsecase>().call(user: user);
 
-        if(result.success != null) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result.success!)));
-        }else{
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result.error!)));
-        }
-
-        
-      },
-      footerText: 'Do You Have An Account? ',
-      footerActionText: 'Sign In',
-      onFooterAction: () => context.go(AppRoutes.login.path),
+          if (result.success != null) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(result.success!)));
+          } else {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(result.error!)));
+          }
+        },
+        footerText: 'Do You Have An Account? ',
+        footerActionText: 'Sign In',
+        onFooterAction: () => context.go(AppRoutes.login.path),
+      ),
     );
   }
 }

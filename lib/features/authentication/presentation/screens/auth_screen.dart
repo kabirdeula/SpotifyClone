@@ -28,46 +28,48 @@ class AuthScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-        child: Column(
-          spacing: 16,
-          children: [
-            brandingImage(scale: 2.6),
-            AppText(text: title, appTextStyle: AppTextStyle.subtitle),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AppText(text: 'If You Need Any Support '),
-                AppText(text: 'Click Here', color: AppColors.primary),
-              ],
-            ),
-            ...fields,
-            SizedBox(
-              width: double.infinity,
-              child: CustomElevatedButton(
-                onPressed: onSubmit,
-                label: button,
+        child: AutofillGroup(
+          child: Column(
+            spacing: 16,
+            children: [
+              brandingImage(scale: 2.6),
+              AppText(text: title, appTextStyle: AppTextStyle.subtitle),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppText(text: 'If You Need Any Support '),
+                  AppText(text: 'Click Here', color: AppColors.primary),
+                ],
               ),
-            ),
-            const Divider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [SocialButton.google(), SocialButton.apple()],
-            ),
-            const Spacer(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AppText(text: footerText),
-                TextButton(
-                  onPressed: onFooterAction,
-                  child: AppText(
-                    text: footerActionText,
-                    color: AppColors.primary,
-                  ),
-                )
-              ],
-            )
-          ],
+              ...fields,
+              SizedBox(
+                width: double.infinity,
+                child: CustomElevatedButton(
+                  onPressed: onSubmit,
+                  label: button,
+                ),
+              ),
+              const Divider(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [SocialButton.google(), SocialButton.apple()],
+              ),
+              const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppText(text: footerText),
+                  TextButton(
+                    onPressed: onFooterAction,
+                    child: AppText(
+                      text: footerActionText,
+                      color: AppColors.primary,
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
