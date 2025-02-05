@@ -1,18 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:spotify_clone/core/util/util.dart';
+import 'package:spotify_clone/core/dependency_injection/dependency_injection.dart';
+import 'package:spotify_clone/core/utils/utils.dart';
 import 'package:spotify_clone/features/authentication/authentication.dart';
 
 class AuthService {
   Future<AuthResponse> register({required UserModel user}) async {
     var message = '';
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final credentials = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: user.email,
         password: user.password,
       );
+      final uid = credentials.user?.uid;
+      await sl<AuthHiveService>().saveUID(uid: uid!);
       message = "User registered successfully.";
       log.i("(Auth Service) $message");
-      return AuthResponse(success: message);
+      return AuthResponse(success: message, uid: uid);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         message = "The password provided is too weak.";

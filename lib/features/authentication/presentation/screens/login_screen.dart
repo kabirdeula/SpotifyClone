@@ -37,9 +37,12 @@ class LoginScreen extends StatelessWidget {
 
           var result = await sl<LoginUsecase>().call(user: user);
 
+          if (!context.mounted) return;
+
           if (result.success != null) {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(result.success!)));
+            context.go(AppRoutes.dashboard.path);
           } else {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(result.error!)));
