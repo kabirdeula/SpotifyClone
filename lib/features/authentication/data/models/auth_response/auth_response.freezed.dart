@@ -22,6 +22,8 @@ AuthResponse _$AuthResponseFromJson(Map<String, dynamic> json) {
 mixin _$AuthResponse {
   String? get success => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
+  @HiveField(0)
+  String? get uid => throw _privateConstructorUsedError;
 
   /// Serializes this AuthResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +41,7 @@ abstract class $AuthResponseCopyWith<$Res> {
           AuthResponse value, $Res Function(AuthResponse) then) =
       _$AuthResponseCopyWithImpl<$Res, AuthResponse>;
   @useResult
-  $Res call({String? success, String? error});
+  $Res call({String? success, String? error, @HiveField(0) String? uid});
 }
 
 /// @nodoc
@@ -59,6 +61,7 @@ class _$AuthResponseCopyWithImpl<$Res, $Val extends AuthResponse>
   $Res call({
     Object? success = freezed,
     Object? error = freezed,
+    Object? uid = freezed,
   }) {
     return _then(_value.copyWith(
       success: freezed == success
@@ -68,6 +71,10 @@ class _$AuthResponseCopyWithImpl<$Res, $Val extends AuthResponse>
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+      uid: freezed == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -81,7 +88,7 @@ abstract class _$$AuthResponseImplCopyWith<$Res>
       __$$AuthResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? success, String? error});
+  $Res call({String? success, String? error, @HiveField(0) String? uid});
 }
 
 /// @nodoc
@@ -99,6 +106,7 @@ class __$$AuthResponseImplCopyWithImpl<$Res>
   $Res call({
     Object? success = freezed,
     Object? error = freezed,
+    Object? uid = freezed,
   }) {
     return _then(_$AuthResponseImpl(
       success: freezed == success
@@ -109,6 +117,10 @@ class __$$AuthResponseImplCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      uid: freezed == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -116,7 +128,7 @@ class __$$AuthResponseImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AuthResponseImpl implements _AuthResponse {
-  const _$AuthResponseImpl({this.success, this.error});
+  const _$AuthResponseImpl({this.success, this.error, @HiveField(0) this.uid});
 
   factory _$AuthResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuthResponseImplFromJson(json);
@@ -125,10 +137,13 @@ class _$AuthResponseImpl implements _AuthResponse {
   final String? success;
   @override
   final String? error;
+  @override
+  @HiveField(0)
+  final String? uid;
 
   @override
   String toString() {
-    return 'AuthResponse(success: $success, error: $error)';
+    return 'AuthResponse(success: $success, error: $error, uid: $uid)';
   }
 
   @override
@@ -137,12 +152,13 @@ class _$AuthResponseImpl implements _AuthResponse {
         (other.runtimeType == runtimeType &&
             other is _$AuthResponseImpl &&
             (identical(other.success, success) || other.success == success) &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.uid, uid) || other.uid == uid));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, success, error);
+  int get hashCode => Object.hash(runtimeType, success, error, uid);
 
   /// Create a copy of AuthResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -161,8 +177,10 @@ class _$AuthResponseImpl implements _AuthResponse {
 }
 
 abstract class _AuthResponse implements AuthResponse {
-  const factory _AuthResponse({final String? success, final String? error}) =
-      _$AuthResponseImpl;
+  const factory _AuthResponse(
+      {final String? success,
+      final String? error,
+      @HiveField(0) final String? uid}) = _$AuthResponseImpl;
 
   factory _AuthResponse.fromJson(Map<String, dynamic> json) =
       _$AuthResponseImpl.fromJson;
@@ -171,6 +189,9 @@ abstract class _AuthResponse implements AuthResponse {
   String? get success;
   @override
   String? get error;
+  @override
+  @HiveField(0)
+  String? get uid;
 
   /// Create a copy of AuthResponse
   /// with the given fields replaced by the non-null parameter values.
