@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:spotify_clone/core/dependency_injection/dependency_injection.dart';
@@ -10,6 +11,7 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     final List<Widget> screens = const [
       HomeScreen(),
       HomeScreen(),
@@ -23,7 +25,6 @@ class DashboardScreen extends StatelessWidget {
           );
         }
         return Scaffold(
-          
           appBar: CustomAppBar(
             isTitle: false,
             titleWidget: brandingImage(scale: 2.8),
@@ -38,7 +39,8 @@ class DashboardScreen extends StatelessWidget {
           body: screens[state.index],
           bottomNavigationBar: NavigationBar(
             selectedIndex: state.index,
-            onDestinationSelected: (value) => sl<DashboardCubit>().updateIndex(value),
+            onDestinationSelected: (value) =>
+                sl<DashboardCubit>().updateIndex(value),
             destinations: [
               NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
               NavigationDestination(
