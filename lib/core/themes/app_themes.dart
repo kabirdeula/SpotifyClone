@@ -25,6 +25,7 @@ class AppThemes {
       scaffoldBackgroundColor: scaffoldBackgroundColor,
       elevatedButtonTheme: _elevatedButtonTheme,
       inputDecorationTheme: _inputDecorationTheme,
+      tabBarTheme: _tabBarTheme,
       fontFamily: 'Montserrat',
       useMaterial3: true,
     );
@@ -34,4 +35,7 @@ class AppThemes {
   static final _elevatedButtonTheme = ButtonStyles.elevatedButton();
   static final _inputDecorationTheme =
       AppInputDecorations.defaultConfig().buildInputDecorationTheme();
+
+  static final _tabBarTheme =
+      CustomTabBarTheme.defaultConfig().buildTabBarTheme();
 }

@@ -4,4 +4,5 @@ import 'dependency_injection.dart';
 
 void setupServiceInjection(){
   sl.registerSingleton<AuthService>(AuthService());
+  sl.registerSingleton<AuthHiveService>(AuthHiveService());
 }

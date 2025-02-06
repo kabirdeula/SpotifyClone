@@ -1,4 +1,5 @@
 import 'package:spotify_clone/features/authentication/authentication.dart';
+import 'package:spotify_clone/features/dashboard/dashboard.dart';
 import 'package:spotify_clone/features/onboarding/onboarding.dart';
 import 'package:spotify_clone/features/theme_preference/theme_preference.dart';
 
@@ -32,6 +33,11 @@ class AppRouter {
         path: AppRoutes.register.path,
         name: AppRoutes.register.name,
         builder: (context, state) => SignUpScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.dashboard.path,
+        name: AppRoutes.dashboard.name,
+        builder: (context, state) => const DashboardScreen(),
       ),
     ],
   );
