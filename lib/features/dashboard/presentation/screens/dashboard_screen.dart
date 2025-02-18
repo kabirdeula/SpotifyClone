@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify_clone/core/dependency_injection/dependency_injection.dart';
 import 'package:spotify_clone/core/widgets/widgets.dart';
 import 'package:spotify_clone/features/dashboard/dashboard.dart';
+import 'package:spotify_clone/features/profile/profile.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -15,7 +16,7 @@ class DashboardScreen extends StatelessWidget {
     final List<Widget> screens = const [
       HomeScreen(),
       HomeScreen(),
-      HomeScreen(),
+      ProfileScreen(),
     ];
     return BlocBuilder<DashboardCubit, DashboardState>(
       builder: (context, state) {
